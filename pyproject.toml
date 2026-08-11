@@ -1,0 +1,43 @@
+[project]
+name = "knowledge-base"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11"
+dependencies = [
+    "colorlog>=6.12.0",
+    "extract>=1.0",
+    "fastapi>=0.140.0",
+    "grandalf>=0.8",
+    "importconfig>=0.0.4",
+    "langchain>=1.3.14",
+    "langchain-openai>=1.4.1",
+    "langchain-text-splitters>=1.1.2",
+    "langgraph>=1.2.9",
+    "logging>=0.4.9.6",
+    "minio>=7.2.20",
+    "myapplication>=0.1.0",
+    "numpy>=2.4.6",
+    "path>=17.1.1",
+    "poll>=1.0",
+    "pymongo>=4.17.0",
+    "python-dotenv>=1.2.2",
+    "the-new-hotness>=1.4.1",
+    "torch>=2.11.0",
+    "torchvision>=0.26.0",
+    "torchaudio>=2.11.0",
+    "flagembedding>=1.3.5",
+    "transformers>=4.45.0,<5.0.0",
+    "pymilvus[model]>=3.0.1",
+    "modelscope>=1.39.1",
+]
+
+[tool.uv.sources]
+# 强制从 NVIDIA 源安装
+torch = { index = "pytorch-cuda" }
+torchvision = { index = "pytorch-cuda" }
+torchaudio = { index = "pytorch-cuda" }
+
+[[tool.uv.index]]
+name = "pytorch-cuda"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
