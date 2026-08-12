@@ -1,5 +1,5 @@
 [project]
-name = "knowledge-base"
+name = "DocVectra"
 version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.11"
@@ -29,6 +29,7 @@ dependencies = [
     "transformers>=4.45.0,<5.0.0",
     "pymilvus[model]>=3.0.1",
     "modelscope>=1.39.1",
+    "logger>=1.4",
 ]
 
 [tool.uv.sources]

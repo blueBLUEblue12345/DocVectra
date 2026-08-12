@@ -1,11 +1,17 @@
 from abc import abstractmethod, ABC
 from typing import TypeVar
 from tools.logger import logger
+from processor.import_processor.config import get_config
 
 T = TypeVar("T")  # 泛型状态类型
 class NodeBase(ABC):
 
     name: str = "base_node"  # 节点名称，子类应覆盖
+
+    @property
+    def config(self):
+        """获取全局配置单例，供子类通过 self.config 访问配置项"""
+        return get_config()
 
     def __call__(self, state: T) -> T:
         """

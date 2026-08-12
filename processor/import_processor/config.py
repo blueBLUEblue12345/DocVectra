@@ -52,6 +52,16 @@ class ImportConfig:
     default_model: str = field(
         default_factory=lambda: os.getenv("MODEL", "")
     )
+    # LLM 调用别名（供 query_processor 节点使用）
+    api_key: str = field(
+        default_factory=lambda: os.getenv("OPENAI_API_KEY", "")
+    )
+    base_url: str = field(
+        default_factory=lambda: os.getenv("OPENAI_API_BASE", "")
+    )
+    llm_temperature: float = field(
+        default_factory=lambda: float(os.getenv("LLM_DEFAULT_TEMPERATURE", "0.1"))
+    )
 
     # ==================== BGE Embedding 配置 ====================
     bge_m3_path: str = field(
