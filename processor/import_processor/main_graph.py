@@ -86,24 +86,19 @@ class KBImportWorkflow:
         return graph.compile()
 
     def run(self, state: ImportGraphState, stream: bool = False):
-        """
-        统一执行入口，支持切换invoke/stream
-        :param state: 初始状态
-        :param stream: 是否流式输出
-        :return: 执行结果
-        """
-        # 打印图结构（仅调试用）
-        self.graph.get_graph().print_ascii()
 
         if stream:
-            return self.graph.stream(state, stream_mode="values")
+            # return self.graph.stream(state, stream_mode="values")
+            return self.graph.stream(state)
         else:
             return self.graph.invoke(state)
 
 
 if __name__ == "__main__":
     # 定义初始状态
-    init_state = {"import_file_path": r"D:\doc\hak180产品安全手册.pdf"}
+    init_state = {"import_file_path": r"E:\doc\hak180产品安全手册.pdf",
+                  "file_dir":r"E:\output"
+                  }
 
     # 方式1：实例化后使用（推荐方式，可复用）
     workflow = KBImportWorkflow()

@@ -25,6 +25,19 @@ def get_milvus_client():
         return None
 
 
+def escape_milvus_string(value: str) -> str:
+    """
+    转义Milvus过滤表达式中的字符串特殊字符
+    防止字符串中的引号、反斜杠等字符破坏过滤表达式语法或造成注入
+    :param value: 原始字符串
+    :return: 转义后的字符串
+    """
+    if not isinstance(value, str):
+        value = str(value)
+    # 先转义反斜杠，再转义单引号，避免二次转义
+    return value.replace("\\", "\\\\").replace("'", "\\'")
+
+
 def create_hybrid_search_requests(dense_vector, sparse_vector, dense_params=None, sparse_params=None, expr=None,
                                   limit=5):
     """

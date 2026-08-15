@@ -77,10 +77,8 @@ Thumbs.db
 # ====================
 # 测试和覆盖率
 # ====================
-tests/
+# 临时测试脚本目录（正式测试在 tests/ 目录，纳入版本控制）
 test/
-test_*.py
-*_test.py
 .pytest_cache/
 .coverage
 htmlcov/

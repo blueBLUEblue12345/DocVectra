@@ -1,0 +1,48 @@
+# 开发环境：仅启动依赖服务，后端/前端在本地运行
+version: "3.8"
+
+services:
+  milvus:
+    image: milvusdb/milvus:v2.4.0
+    container_name: docvectra-milvus-dev
+    ports:
+      - "19530:19530"
+      - "9091:9091"
+    volumes:
+      - milvus_data:/var/lib/milvus
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:7.0
+    container_name: docvectra-mongodb-dev
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+  minio:
+    image: minio/minio:latest
+    container_name: docvectra-minio-dev
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: docvectra-redis-dev
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+volumes:
+  milvus_data:
+  mongo_data:
+  minio_data:

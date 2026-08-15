@@ -58,8 +58,8 @@ class HistoryMongoTool:
 
 
 # 定义全局变量：存储HistoryMongoTool的单例实例
-# 目的：将数据库连接的初始化提前到模块加载阶段，避免第一次调用接口时才建立连接（提升首次响应速度）
-_history_mongo_tool = HistoryMongoTool()
+# 目的：懒加载模式，首次调用时才创建连接，避免模块导入时阻塞
+_history_mongo_tool = None
 
 def get_history_mongo_tool() -> HistoryMongoTool:
     """

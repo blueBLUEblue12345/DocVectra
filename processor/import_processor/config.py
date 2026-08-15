@@ -52,6 +52,9 @@ class ImportConfig:
     default_model: str = field(
         default_factory=lambda: os.getenv("MODEL", "")
     )
+    llm_model: str = field(
+        default_factory=lambda: os.getenv("LLM_DEFAULT_MODEL", "")
+    )
     # LLM 调用别名（供 query_processor 节点使用）
     api_key: str = field(
         default_factory=lambda: os.getenv("OPENAI_API_KEY", "")
@@ -123,6 +126,26 @@ class ImportConfig:
 
     # ==================== 速率限制 ====================
     requests_per_minute: int = 15       # 图片总结 API 速率限制
+
+    # ==================== MCP 配置 ====================
+    mcp_base_url: str = field(
+        default_factory=lambda: os.getenv("MCP_DASHSCOPE_BASE_URL", "")
+    )
+    mcp_api_key: str = field(
+        default_factory=lambda: os.getenv("OPENAI_API_KEY", "")
+    )
+
+    # ==================== Rerank 配置 ====================
+    text_rerank_api_key: str = field(
+        default_factory=lambda: os.getenv("OPENAI_API_KEY", "")
+    )
+    text_rerank_model: str = field(
+        default_factory=lambda: os.getenv("TEXT_RERANK_MODEL", "")
+    )
+    text_rerank_instruct: str = field(
+        default_factory=lambda: os.getenv("TEXT_RERANK_INSTRUCT", "")
+    )
+
 
     @classmethod
     def from_env(cls) -> "ImportConfig":

@@ -30,6 +30,10 @@ dependencies = [
     "pymilvus[model]>=3.0.1",
     "modelscope>=1.39.1",
     "logger>=1.4",
+    "openai-agents>=0.20.0",
+    "httpx>=0.28.1",
+    "dashscope>=1.26.7",
+    "redis>=5.0.0",
 ]
 
 [tool.uv.sources]
