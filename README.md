@@ -1,3 +1,5 @@
+
+
 # DocVectra
 
 > DocVectra是一个企业级智能知识库系统，基于 RAG（检索增强生成）技术，为垂直领域提供精准的知识检索与智能问答服务。
@@ -113,7 +115,7 @@ PDF/文档 → MinerU 解析 → Markdown 图片处理 → 文档智能切片 �
 #### 软件要求
 - **操作系统**: Windows 10/11、Linux（Ubuntu 20.04+）、macOS
 - **Python**: >= 3.11
-- **CUDA**: 12.x（用于 GPU 加速）
+- **CUDA**: 13.x（用于 GPU 加速）
 - **Node.js**: >= 18（用于前端开发）
 - **包管理器**: [uv](https://github.com/astral-sh/uv)（推荐的 Python 包管理工具）
 
