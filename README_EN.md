@@ -17,6 +17,20 @@ DocVectra targets vertical scenarios such as electronic product manuals, repair 
 | Streaming Q&A | SSE real-time push with character-by-character output |
 | Conversation History Management | MongoDB storage for dialogue history, supporting contextual continuous conversations |
 
+## Interface Preview
+
+### Smart Q&A
+
+![Smart Q&A Interface](images/chat.png)
+
+Clean conversational interface with streaming output and real-time AI responses. The left sidebar provides entry points for new conversations, document import, and history records.
+
+### Document Import
+
+![Document Import Interface](images/upload.png)
+
+Supports batch upload of PDF and Markdown files, automatically parses document content and performs vectorization, with real-time progress display during import.
+
 ## System Architecture
 
 | Module | Responsibility | Technology |

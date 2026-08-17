@@ -119,6 +119,14 @@ export const useChatStore = defineStore('chat', () => {
         })
 
         response.eventSource.addEventListener('final', (event) => {
+          try {
+            const data = JSON.parse(event.data)
+            if (data.answer) {
+              updateLastAssistantMessage(data.answer)
+            }
+          } catch (e) {
+            console.error('Parse final error:', e)
+          }
           isStreaming.value = false
           const lastMsg = messages.value[messages.value.length - 1]
           if (lastMsg) lastMsg.isStreaming = false

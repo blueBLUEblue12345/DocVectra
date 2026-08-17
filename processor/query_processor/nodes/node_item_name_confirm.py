@@ -130,7 +130,9 @@ class NodeItemNameConfirm(NodeBase):
             ]
 
             # 5. 调用LLM客户端，发起请求获取结果
+            logger.info(f"步骤4：开始调用 LLM (model={self.config.item_model})")
             response = chat_model.invoke(messages)
+            logger.info(f"步骤4：LLM 调用完成")
             content = response.content
 
             # 6. 数据清洗：处理LLM可能返回的代码块格式（如```json ... ```），去除包裹符

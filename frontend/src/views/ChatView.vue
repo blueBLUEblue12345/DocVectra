@@ -75,6 +75,8 @@
       </div>
       <p class="input-hint">按 Enter 发送，Shift + Enter 换行</p>
     </div>
+
+    <PixelNailong />
   </div>
 </template>
 
@@ -82,6 +84,7 @@
 import { ref, computed, watch, nextTick, onMounted } from 'vue'
 import { useChatStore } from '../stores/chatStore'
 import { marked } from 'marked'
+import PixelNailong from '../components/PixelNailong.vue'
 
 const chatStore = useChatStore()
 const messagesContainer = ref(null)

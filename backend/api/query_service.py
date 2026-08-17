@@ -99,7 +99,8 @@ def run_query_graph(session_id: str, user_query: str, is_stream: bool = True):
 
     try:
         workflow = KBQueryWorkflow()
-        workflow.run(init_state, stream=True)
+        for event in workflow.run(init_state, stream=True):
+            logger.info(f"工作流事件: {list(event.keys())}")
         update_task_status(session_id, TASK_STATUS_COMPLETED, is_stream)
     except Exception as e:
         logger.error(f"流程执行异常: {e}", exc_info=True)
